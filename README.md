@@ -1,4 +1,4 @@
-#storyshots-css-wallaby
+# storyshots-css-wallaby
 
 Sample test project to assist in the diagnosing of the following error
 
