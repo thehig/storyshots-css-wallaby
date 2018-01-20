@@ -22,13 +22,12 @@ module.exports = function(wallaby) {
       "src/**/*.js",
       "src/**/*.jsx",
       "src/**/*.snap",
-      "!src/spec/**/*.spec.js",
+      "!src/**/*.test.js",
       "src/**/*.stories.js",
       ".storybook/**/*.js"
     ],
     tests: [
-      "!src/spec/storyshots.spec.js", // FIXME: Storyshots don't play nice with wallaby at this time
-      "src/spec/**/*.spec.js"
+      "src/**/*.test.js"
     ],
     env: { type: "node", runner: "node" },
     compilers: {
