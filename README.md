@@ -1,6 +1,6 @@
 # storyshots-css-wallaby
 
-Sample test project to assist in the diagnosing of the following error
+Sample test project to assist in the diagnosing of the following error [here](https://github.com/wallabyjs/public/issues/1472)
 
 ```
 ​​​​​[Info]​​​​​ Started Wallaby.js Core v1.0.541
