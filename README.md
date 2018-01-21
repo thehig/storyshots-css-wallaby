@@ -2,6 +2,10 @@
 
 Sample test project to assist in the diagnosing of the following error [here](https://github.com/wallabyjs/public/issues/1472)
 
+## Solved:
+
+Update wallaby.js config. I copied this from an older Create-React-App wallaby config. For more, see the github issue link above
+
 ```
 ​​​​​[Info]​​​​​ Started Wallaby.js Core v1.0.541
 ​​[Error] Runtime error: [...]\storyshots-css-wallaby\node_modules\typeface-roboto\index.css:2​​
