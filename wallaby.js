@@ -19,11 +19,8 @@ module.exports = function(wallaby) {
 
   return {
     files: [
-      "src/**/*.js",
-      "src/**/*.jsx",
-      "src/**/*.snap",
+      "src/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)",
       "!src/**/*.test.js",
-      "src/**/*.stories.js",
       ".storybook/**/*.js"
     ],
     tests: [
@@ -35,17 +32,10 @@ module.exports = function(wallaby) {
       ".storybook/**/*.js": babelCompiler
     },
     setup: wallaby => {
-      wallaby.testFramework.configure({
-        // as in node_modules/react-scripts/utils/createJestConfig.js
-        moduleNameMapper: {
-          "^.+\\.(jpg|jpeg|png|gif|svg)$": require.resolve(
-            "react-scripts/config/jest/fileTransform.js"
-          ),
-          "^.+\\.css$": require.resolve(
-            "react-scripts/config/jest/cssTransform.js"
-          )
-        }
-      });
+      const jestConfig = require('react-scripts/scripts/utils/createJestConfig')(p => require.resolve('react-scripts/' + p));
+      Object.keys(jestConfig.transform || {}).forEach(k => ~k.indexOf('^.+\\.(js|jsx') && void delete jestConfig.transform[k]);
+      delete jestConfig.testEnvironment;
+      wallaby.testFramework.configure(jestConfig);
     },
     testFramework: "jest"
   };
